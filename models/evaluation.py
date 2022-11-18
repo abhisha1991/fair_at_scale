@@ -141,11 +141,6 @@ def run2(fn, log, attribute):
                 result_file.write(str(seed_set_size) + ' '+ str(len(influenced_nodes)) + ' ' + str(f_score) + '\n')
 
 
-            # pd.DataFrame(
-            #     {"Feature": list(spreading_of_set.keys()), "Cascade Size": list(spreading_of_set.values())}).to_csv(
-            #     seed_set_file.replace("Seeds", "Spreading").replace("Seeds/", "Spreading/"), index=False)
-
-
 if __name__ == '__main__':
 
     with open("time_log.txt", "a") as log:
