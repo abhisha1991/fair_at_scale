@@ -149,7 +149,8 @@ def store_samples(fn, cascade_nodes, cascade_times, initiators, train_set, op_ti
         else:
             print("out")
             probs = [float(i) / s_times for i in times]
-            samples = np.random.choice(a=cascade_nodes, size=round((no_samples)*f_score), p=probs)  # multiplied by fair score
+            samples = np.random.choice(a=cascade_nodes, size=round((no_samples)*f_score), p=probs)  # multiplied by fair score for fps
+            # samples = np.random.choice(a=cascade_nodes, size=round((no_samples) * f_score), p=probs) # direct sampling for fac
         # ----- Store train set
         op_id = initiators[0]
         for i in samples:
