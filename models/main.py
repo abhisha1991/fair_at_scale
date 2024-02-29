@@ -41,15 +41,17 @@ def run_processes(input_log, input_fn="weibo"):
     sampling_perc, learning_rate, n_epochs, embedding_size, num_neg_samples = get_parameters()
     print(sampling_perc, learning_rate, n_epochs, embedding_size, num_neg_samples)
 
-    # if (not os.path.isfile(os.getcwd() + "/Weibo/Init_Data/train_cascades.txt")) or (
-    #         not os.path.isdir(os.getcwd() + "/Weibo/Init_Data/FAC")):
-    #     preprocessing.run(input_fn, input_log)
-    # extract_feats_and_trainset.run(input_fn, 'region', sampling_perc, input_log)
+    print(os.getcwd() + "/Weibo/Init_Data/train_cascades.txt")
+    print(os.getcwd() + "/Weibo/Init_Data/FAC")
+    #if (not os.path.isfile(os.getcwd() + "/Weibo/Init_Data/train_cascades.txt")) or (
+    #        not os.path.isdir(os.getcwd() + "/Weibo/Init_Data/FAC")):
+    #    preprocessing.run(input_fn, input_log)
+    extract_feats_and_trainset.run(input_fn, 'region', sampling_perc, input_log)
     # preprocess_for_imm.run(input_fn, input_log)
     # rank_nodes.run(input_fn)
     # infector.run(input_fn, learning_rate, n_epochs, embedding_size, num_neg_samples, input_log)
     # iminfector.run(input_fn, embedding_size, input_log)
-    evaluation.run2(input_fn, input_log, 'region')
+    #evaluation.run2(input_fn, input_log, 'region')
 
 
 if __name__ == '__main__':

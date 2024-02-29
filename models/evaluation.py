@@ -21,7 +21,7 @@ def count_distinct_nodes_influenced(seed_set_cascades: Dict) -> int:
 
 def run(fn, log):
     # for seed_set_file in glob.glob(fn.capitalize() + "/FAC/Seeds/*"):
-    for seed_set_file in glob.glob("seeds_result/*.txt"):
+    for seed_set_file in glob.glob("/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/FPS/Seeds/*.txt"):
         print(seed_set_file)
         # --- Compute precision
         print("------------------")
@@ -41,7 +41,7 @@ def run(fn, log):
 
                 # ------- Fill the seed_cascades
                 # with open(f"{fn.capitalize()}/Init_Data/test_cascades.txt") as test_cascades:
-                with open("/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/test_cascades.txt") as test_cascades:
+                with open("/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/test_cascades.txt") as test_cascades:
                     for line in test_cascades:
                         cascade = line.split(";")
                         op_id = cascade[1].split(" ")[0]
@@ -64,7 +64,7 @@ def run(fn, log):
 def run2(fn, log, attribute):
 
     # attribute_csv = '/media/yuting/TOSHIBA EXT/digg/profile_'+ attribute + '_v6.csv'
-    attribute_csv = '/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/profile_' + attribute + 'v3.csv'
+    attribute_csv = '/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/weibo/profile_' + attribute + 'v3.csv'
     user_attribute_dict = get_attribute_dict('weibo',attribute_csv, attribute)
 
     # group statistics
@@ -76,7 +76,7 @@ def run2(fn, log, attribute):
     # load test cascade
     seed_cascades, seed_set_total = defaultdict(list), set()
     # with open("/media/yuting/TOSHIBA EXT/digg/sampled/test_cascades_sampled.txt") as test_cascades:
-    with open("/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/test_cascades.txt") as test_cascades:
+    with open("/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/test_cascades.txt") as test_cascades:
         for line in test_cascades:
             cascade = line.split(";")
             op_id = cascade[1].split(" ")[0]
@@ -112,7 +112,7 @@ def run2(fn, log, attribute):
 
                 # # ------- Fill the seed_cascades
                 # # with open(f"{fn.capitalize()}/Init_Data/test_cascades.txt") as test_cascades:
-                # with open("/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/test_cascades.txt") as test_cascades:
+                # with open("/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/test_cascades.txt") as test_cascades:
                 #     for line in test_cascades:
                 #         cascade = line.split(";")
                 #         op_id = cascade[1].split(" ")[0]

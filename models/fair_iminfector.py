@@ -13,12 +13,12 @@ class IMInfector:
         self.embedding_size = embedding_size
         # self.file_Sn = fn.capitalize() + "/FAC/Embeddings/infector_source3.txt"
         # self.file_Tn = fn.capitalize() + "/FAC/Embeddings/infector_target3.txt"
-        self.file_Sn = "/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/embeddings/source_gender_im_v2_new.txt"
-        self.file_Tn = "/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/embeddings/target_gender_im_v2_new.txt"
+        self.file_Sn = "/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Embeddings/source_gender_fps+fac_v2_new.txt"
+        self.file_Tn = "/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Embeddings/target_gender_fps+fac_v2_new.txt"
         # self.file_Sn = "/media/yuting/TOSHIBA EXT/digg/sampled/embeddings/source_gender_fac.txt"
         # self.file_Tn = "/media/yuting/TOSHIBA EXT/digg/sampled/embeddings/target_gender_fac.txt"
         # self.train_set_file = '/media/yuting/TOSHIBA EXT/digg/sampled/trainset_fair_gender_fac.txt'
-        self.train_set_file = '/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/train_set_fair_gender_fac_v2_new.txt'
+        self.train_set_file = '/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/train_set_fair_gender_fps_v4.txt'
         # self.size = 500
         # self.P = 10
         # self.P = 100
@@ -75,7 +75,7 @@ class IMInfector:
 
         nodes, i = [], 0
         f = open(embedding_file, "r")
-        emb = np.zeros((embed_dim[0], embed_dim[1]), dtype=np.float)
+        emb = np.zeros((embed_dim[0], embed_dim[1]), dtype=np.float64)
 
         for l in f:
             if "[" in l:
@@ -84,14 +84,14 @@ class IMInfector:
                 combined = combined + " " + l.replace("\n", "").replace("[", "").replace("]", "")
                 parts = combined.split(":")
                 nodes.append(int(parts[0]))
-                emb[i] = np.asarray([float(p.strip()) for p in parts[1].split(" ") if p != ""], dtype=np.float)
+                emb[i] = np.asarray([float(p.strip()) for p in parts[1].split(" ") if p != ""], dtype=np.float64)
                 i += 1
             combined = combined + " " + l.replace("\n", "").replace("[", "").replace("]", "")
         return nodes, emb
 
     def read_sizes(self):
         # with open(self.fn.capitalize() + "/" + self.fn + "_sizes.txt", "r") as f:
-        with open("/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/weibo_sizes_gender_im_v2_new.txt", "r") as f:
+        with open("/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/weibo_sizes_gender_fps+fac_v2_new.txt", "r") as f:
         # with open("/media/yuting/TOSHIBA EXT/digg/sampled/digg_sampled_size_gender_fac.txt", "r") as f:
             self.target_size = int(next(f).strip())
             self.input_size = int(next(f).strip())
@@ -149,8 +149,8 @@ class IMInfector:
 
         # Do not sort
         # with open(self.fn.capitalize() + "/FAC/Seeds/final_seeds.txt", "w") as ftp:
-        with open("Data/seeds/final_seedds_gender_im_v2_new.txt", "w") as ftp:
-        # with open("/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/train_set_fair_gender_fps_v2_new.txt", "w") as ftp:
+        with open("/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/FAC/Seeds/final_seedds_gender_im_v2_new.txt", "w") as ftp:
+        # with open("/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/weibo/train_set_fair_gender_fps_v2_new.txt", "w") as ftp:
 
             while len(self.S) < self.size:
                 if len(q) <= 0:

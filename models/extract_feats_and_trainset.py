@@ -34,7 +34,7 @@ def mapped_uid():
     map user id from uidlist.txt
     :return: dict of user id map
     '''
-    file_path = '/media/yuting/TOSHIBA EXT/weibo/weibodata/uidlist.txt'
+    file_path = '/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/uidlist.txt'
     with open(file_path, "r", encoding="gbk") as f:
         lines_uid = f.readlines()
     uid_map = {}
@@ -60,7 +60,7 @@ def get_attribute_dict(fn:str, path: str, attribute: str) -> Dict:
             contents = f.read()
     except:
         # path_user_profile = '/'.join(path.split("/")[:-1]) + "/userProfile/"
-        path_user_profile = '/media/yuting/TOSHIBA EXT/weibo/weibodata/userProfile/' ####
+        path_user_profile = '/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/userProfile/' ####
 
         txt_files = [os.path.join(path_user_profile, f) for f in os.listdir(path_user_profile) if
                      os.path.isfile(os.path.join(path_user_profile, f))]
@@ -160,14 +160,15 @@ def store_samples(fn, cascade_nodes, cascade_times, initiators, train_set, op_ti
 def run(fn, attribute,sampling_perc, log):
     print("Reading the network")
     cwd = os.getcwd()
-    # txt_file_path = '/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/weibo_network.txt' ###
-    txt_file_path = '/media/yuting/TOSHIBA EXT/digg/sampled/digg_network_sampled.txt'  ###
-    # g = ig.Graph.Read_Ncol(txt_file_path)
+    # txt_file_path = '/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/weibo_network.txt' ###
+    txt_file_path = '/opt/data/weibo_network.txt' ###
+    # txt_file_path = '/media/yuting/TOSHIBA EXT/digg/sampled/digg_network_sampled.txt'  ###
+    g = ig.Graph.Read_Ncol(txt_file_path)
     print("Completed reading the network.")
 
-    # train_set_file = '/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/train_set_fair_gender_fps_v4.txt'  # set the train_set file according to different attribute
+    train_set_file = '/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/train_set_fair_gender_fps_v4.txt'  # set the train_set file according to different attribute
     # train_set_file = '/media/yuting/TOSHIBA EXT/digg/sampled/trainset_fair_age_fps.txt'  # set the train_set file according to different attribute
-    attribute_csv = '/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/profile_gender.csv'      #  !!! use v6  set attribute csv file to write corresponding attribute
+    attribute_csv = '/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/profile_gender.csv'      #  !!! use v6  set attribute csv file to write corresponding attribute
     # attribute_csv = '/media/yuting/TOSHIBA EXT/digg/profile_age_v3.csv'
     user_attribute_dict = get_attribute_dict(fn, attribute_csv, attribute)
 
@@ -177,8 +178,8 @@ def run(fn, attribute,sampling_perc, log):
         attribute_grouped[v].append(k)
     print('generate grouped nodes')
 
-    # with open('/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/train_cascades.txt', "r") as f, open(train_set_file, "w") as train_set:
-    with open('/media/yuting/TOSHIBA EXT/digg/sampled/train_cascades_sampled.txt', "r") as f, open(train_set_file, "w") as train_set:
+    with open('/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/train_cascades.txt', "r") as f, open(train_set_file, "w") as train_set:
+    # with open('/media/yuting/TOSHIBA EXT/digg/sampled/train_cascades_sampled.txt', "r") as f, open(train_set_file, "w") as train_set:
         # ----- Initialize features
         deleted_nodes = []
         g.vs["Cascades_started"] = 0
@@ -238,12 +239,15 @@ def run(fn, attribute,sampling_perc, log):
     np.seterr(divide='ignore', invalid='ignore')
 
     # ------ Store node characteristics
-    # node_feature_fair_gender = '/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/node_feature_age_fps_v4.csv'
-    node_feature_fair_age = '/media/yuting/TOSHIBA EXT/digg/sampled/node_feature_age_fps.csv'
+    #node_feature_fair_gender = '/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/FPS/node_features.csv'
+    node_feature_fair_age = '/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/FPS/node_feature_age_fps.csv'
+    # node_feature_fair_age = '/media/yuting/TOSHIBA EXT/digg/sampled/node_feature_age_fps.csv'
     pd.DataFrame({"Node": g.vs["name"],
                   "Kcores": kcores,
                   "Participated": g.vs["Cascades_participated"],
                   "Avg_Cascade_Size": a / b}).to_csv(node_feature_fair_age, index=False)
+
+    print("Finished storing node characteristics")
 
     # # ------ Derive incremental node dictionary
     # graph = pd.read_csv('/media/yuting/TOSHIBA EXT/digg/' + fn + "_network.txt", sep=" ")

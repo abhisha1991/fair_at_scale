@@ -13,8 +13,10 @@ class Infector:
         self.n_epochs = n_epochs
         self.embedding_size = embedding_size
         self.num_samples = num_samples
-        self.file_Sn = "/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/embeddings/source_gender_fps+fac_v2_new.txt"
-        self.file_Tn = "/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/embeddings/target_gender_fps+fac_v2_new.txt"
+        #self.file_Sn = "/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/weibo/embeddings/source_gender_fps+fac_v2_new.txt"
+        self.file_Sn = "/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Embeddings/source_gender_fps+fac_v2_new.txt"
+        #self.file_Tn = "/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/weibo/embeddings/target_gender_fps+fac_v2_new.txt"
+        self.file_Tn = "/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Embeddings/target_gender_fps+fac_v2_new.txt"
         # self.file_Sn = "/media/yuting/TOSHIBA EXT/digg/sampled/embeddings/source_age_fac.txt"
         # self.file_Tn = "/media/yuting/TOSHIBA EXT/digg/sampled/embeddings/target_age_fac.txt"
 
@@ -42,7 +44,7 @@ class Infector:
         """
         initiators = []
         # with open(self.fn.capitalize() + "/Init_Data/train_set.txt", "r") as f:
-        with open('/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/train_set_fair_gender_fps_v2_new.txt', "r") as f:
+        with open('/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/train_set_fair_gender_fps_v4.txt', "r") as f:
         # with open('/media/yuting/TOSHIBA EXT/digg/sampled/trainset_fair_age_fac.txt', "r") as f:
             for l in f:
                 parts = l.split(",")
@@ -63,13 +65,14 @@ class Infector:
         # ----------------- Target node dictionary
         # with open(self.fn.capitalize() + "/Init_Data/" + self.fn + "_incr_dic.json", "r") as f:
         # with open("/media/yuting/TOSHIBA EXT/digg/sampled/digg_sampled_incr_dic.json", "r") as f:
-        with open("/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/weibo_incr_dic.json", "r") as f:
+        #with open("/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/weibo/weibo_incr_dic.json", "r") as f:
+        with open("/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/weibo_incr_dic.json", "r") as f:
             self.dic_out = json.load(f)
         self.target_size = len(self.dic_out)
         print(self.target_size)
         # with open(self.fn.capitalize() + "/" + self.fn + "_sizes.txt", "w") as f:
         # with open("/media/yuting/TOSHIBA EXT/digg/sampled/digg_sampled_size_age_fac.txt","w") as f:
-        with open("/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/weibo_sizes_gender_fps+fac_v2_new.txt", "w") as f:
+        with open("/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/weibo_sizes_gender_fps+fac_v2_new.txt", "w") as f:
             f.write(f"{str(self.target_size)}\n")
             f.write(str(self.vocabulary_size))
 
@@ -157,7 +160,8 @@ class Infector:
             for epoch in range(self.n_epochs):
                 # --------- Train
                 # with open(self.fn.capitalize() + "/Init_Data/train_set.txt", "r") as f:
-                with open('/media/yuting/TOSHIBA EXT/weibo/weibodata/processed4maxmization/weibo/train_set_fair_gender_fps_v2_new.txt',"r") as f:
+                #with open('/gdrive/MyDrive/FairInfluenceMaximization/data/weibodata/processed4maxmization/weibo/train_set_fair_gender_fps_v2_new.txt',"r") as f:
+                with open('/gdrive/MyDrive/FairInfluenceMaximization/data/Data/Weibo/Init_Data/train_set_fair_gender_fps_v4.txt', "r") as f:
                 # with open('/media/yuting/TOSHIBA EXT/digg/sampled/trainset_fair_age_fac.txt',"r") as f:
 
                     idx, init, inputs, labels = 0, -1, [], []
