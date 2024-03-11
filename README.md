@@ -23,9 +23,16 @@ The aim is to find K most influential (seed) nodes from which diffusion of a spe
 5. Equity: any person’s probability of being influenced is (almost) the same, regardless of group, preserving the principle of demographic parity
 6. Diffusion Probability P(s, t): Probability that node "t" will be found in cascade started by node "s"
    - So t is influenced by s
+7. Fairness is defined as a metric between 0 and 1 for a given characteristic (say gender or region) which is calculated on the basis of influenced ratio values of the graph population which is partitioned by the current characteristic 
 
-
+Diffusion Probability
 ![image](https://github.com/abhisha1991/fair_at_scale/assets/10823325/3abaec34-5a22-4da2-8ddf-b0c55403e9ba)
+
+Fairness
+![image](https://github.com/abhisha1991/fair_at_scale/assets/10823325/a7b9c497-9d7c-473a-9b58-e539d3e15f21)
+
+![image](https://github.com/abhisha1991/fair_at_scale/assets/10823325/229ea178-03dd-4bb0-a871-7928e9df4580)
+
 
 ## Resources
 Main paper: [link](https://arxiv.org/pdf/2306.01587.pdf)
