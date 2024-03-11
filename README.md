@@ -15,8 +15,8 @@ The aim is to find K most influential (seed) nodes from which diffusion of a spe
 2. Cascade: A collection of (source, target, timestamp) for a specific message (post). It can be thought of as a replay of the network spread of a message
 3. Group: graph is divided into groups of people with similar characteristics (age, gender)
 4. Maxmin: minimize gap of information spread between groups
-- 70% of old males and 69% of young females influenced with same message
-- Proportions are preserved between groups
+   - 70% of old males and 69% of young females influenced with same message
+   - Proportions are preserved between groups
 
 
 ## Resources
