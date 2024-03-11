@@ -10,6 +10,9 @@
 It refers to a class of algorithms that aim to maximize information spread in a graph under some budget constraints.
 The aim is to find K most influential (seed) nodes from which diffusion of a specific message should start 
 
+
+![image](https://github.com/abhisha1991/fair_at_scale/assets/10823325/15ebb264-919f-4e70-8fb9-f386894c356f)
+
 ### Definitions
 1. Diffusion: the process of spreading a message in a network
 2. Cascade: A collection of (source, target, timestamp) for a specific message (post). It can be thought of as a replay of the network spread of a message
@@ -18,7 +21,11 @@ The aim is to find K most influential (seed) nodes from which diffusion of a spe
    - 70% of old males and 69% of young females influenced with same message
    - Proportions are preserved between groups
 5. Equity: any person’s probability of being influenced is (almost) the same, regardless of group, preserving the principle of demographic parity
+6. Diffusion Probability P(s, t): Probability that node "t" will be found in cascade started by node "s"
+   - So t is influenced by s
 
+
+![image](https://github.com/abhisha1991/fair_at_scale/assets/10823325/3abaec34-5a22-4da2-8ddf-b0c55403e9ba)
 
 ## Resources
 Main paper: [link](https://arxiv.org/pdf/2306.01587.pdf)
