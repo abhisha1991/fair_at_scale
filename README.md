@@ -8,7 +8,8 @@
 
 ## Influence Maximization
 It refers to a class of algorithms that aim to maximize information spread in a graph under some budget constraints.
-The aim is to find K most influential (seed) nodes from which diffusion of a specific message should start 
+The aim is to find K most influential (seed) nodes from which diffusion of a specific message should start.
+This project takes things a step further by adding a constraint of fairness when trying to still maximize influence.
 
 
 ![image](https://github.com/abhisha1991/fair_at_scale/assets/10823325/15ebb264-919f-4e70-8fb9-f386894c356f)
