@@ -17,10 +17,14 @@ The aim is to find K most influential (seed) nodes from which diffusion of a spe
 4. Maxmin: minimize gap of information spread between groups
    - 70% of old males and 69% of young females influenced with same message
    - Proportions are preserved between groups
+5. Equity: any person’s probability of being influenced is (almost) the same, regardless of group, preserving the principle of demographic parity
 
 
 ## Resources
 Main paper: [link](https://arxiv.org/pdf/2306.01587.pdf)
 Dataset: [link](https://drive.google.com/file/d/1AFuShgAdyoqodqR1oFlCRp7okEYDdeLt/view)
+
+
+![image](https://github.com/abhisha1991/fair_at_scale/assets/10823325/9b2a79fd-4d81-411b-8c91-c06d57756ac0)
 
 Team Resources: [link](https://drive.google.com/drive/u/0/folders/1KeuMFnr6hQwNyUvglY103j8hvADN9pzC)
