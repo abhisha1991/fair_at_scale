@@ -14,7 +14,7 @@ This project takes things a step further by adding a constraint of fairness when
 ## Optimizations compared to original [fair_at_scale](https://github.com/yu-ting-feng/fair_at_scale):
 - `remove_duplicates_fast`: optimized to come up with unique nodes and times in one pass. (4347x speedup from 61 seconds down to 13ms)
 - `mapped_uid`: creating in-place dictionary and iterating through file lines instead of reading first. (2% speedup)
-- parallelized `fair_im_processed_D_parallel`: chunked the normalization and softmax across multiprocessing Pool. (5x speedup from ~10 minutes to 2.5 minutes)
+- parallelized `fair_im_processed_D_parallel` and renamed to `batched_fair_im_process_D_parallel`: chunked the normalization and softmax calculations across a multiprocessing Pool. (5x speedup from ~10 minutes to 2.5 minutes)
 
 
 ## Results of Running on [e2-standard-32](https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types_table) in GCP using one attribute:
