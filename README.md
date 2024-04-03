@@ -5,6 +5,8 @@
 #### Guided by Prof. Puya Vahabi
 #### Spring 2024
 
+https://abhisha1991.github.io/fair_at_scale/
+
 
 ## Influence Maximization
 It refers to a class of algorithms that aim to maximize information spread in a graph under some budget constraints.
