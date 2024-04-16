@@ -5,7 +5,7 @@
 #### Guided by Prof. Puya Vahabi
 #### Spring 2024
 
-https://abhisha1991.github.io/fair_at_scale/
+Website: https://sites.google.com/berkeley.edu/fairimpact/home
 
 
 ## Influence Maximization
