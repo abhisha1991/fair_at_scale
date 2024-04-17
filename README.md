@@ -16,6 +16,20 @@ This project takes things a step further by adding a constraint of fairness when
 
 However, 128 GB RAM is required for loading the source and target embedding matrices and running the fair imfector diffusion probabilities and running the IMINFECTOR algorithm. At peak, 95GB RAM is used. If you do not have enough RAM, the program will crash because you are out of memory.
 
+## Getting Started
+Our GitHub project allows you to run the IM with fairness at scale FPS algorithm in a streamlined Jupyter notebook. Data from the Weibo social media network can be accessed through Google Drive [here](https://drive.google.com/file/d/1AFuShgAdyoqodqR1oFlCRp7okEYDdeLt/view). To get started you will need:
+- Scalable GPU and high RAM (> 50 GB) enabled environment for running notebooks
+- Environment session must have long timeouts (preferably over 1 day)
+- Storage environment with over 100 GB of storage
+- For quick iterations, we used google drive (2 TB monthly subscription) + Google collab paid subscription
+
+
+Prefer to use the notebooks. There's no guarantee the `models/` code will run effectively.
+
+Ideally, set up Colab Enterprise with Vertex AI in a new GCP (Google Cloud Platform) project. Instead of google drive, you can use GCS Fuse to directly mount Google Cloud Storage to your local file system. This way, you can:
+- create a [e2-standard-32 runtime](https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types_table) to run your notebook (costs around $32 / 24-hours to run)
+- mount the data directly from Google Cloud Storage available at [fair-influence-maximization-mounted](https://console.cloud.google.com/storage/browser/fair-influence-maximization-mounted?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&hl=en&project=d4w3-369005&prefix=&forceOnObjectsSortingFiltering=false)
+
 ## Optimizations compared to original [fair_at_scale](https://github.com/yu-ting-feng/fair_at_scale):
 The following optimizations allowed us to reduce the full data loading, feature extraction, training, and evaluation for a single 1 epoch from 6 hours down to 3.5 hours.
 - `remove_duplicates_fast`: optimized to come up with unique nodes and times in one pass. (4347x speedup from 61 seconds down to 13ms)
