@@ -11,7 +11,13 @@ It refers to a class of algorithms that aim to maximize information spread in a 
 The aim is to find K most influential (seed) nodes from which diffusion of a specific message should start.
 This project takes things a step further by adding a constraint of fairness when trying to still maximize influence.
 
+## Hardware Requirements:
+64 GB RAM is sufficient for loading the weibo graph, extracting features, ranking nodes, and training imfector.
+
+However, 128 GB RAM is required for loading the source and target embedding matrices and running the fair imfector diffusion probabilities and running the IMINFECTOR algorithm. At peak, 95GB RAM is used. If you do not have enough RAM, the program will crash because you are out of memory.
+
 ## Optimizations compared to original [fair_at_scale](https://github.com/yu-ting-feng/fair_at_scale):
+The following optimizations allowed us to reduce the full data loading, feature extraction, training, and evaluation for a single 1 epoch from 6 hours down to 3.5 hours.
 - `remove_duplicates_fast`: optimized to come up with unique nodes and times in one pass. (4347x speedup from 61 seconds down to 13ms)
 - `mapped_uid`: creating in-place dictionary and iterating through file lines instead of reading first. (2% speedup)
 - parallelized `fair_im_processed_D_parallel` and renamed to `batched_fair_im_process_D_parallel`: chunked the normalization and softmax calculations across a multiprocessing Pool. (5x speedup from ~10 minutes to 2.5 minutes)
