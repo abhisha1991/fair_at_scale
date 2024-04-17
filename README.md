@@ -26,6 +26,8 @@ The following optimizations allowed us to reduce the full data loading, feature 
 ## Results of Running on [e2-standard-32](https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types_table) in GCP using one attribute:
 e2-standard-32 consists of 32 vCPUs and 128 GB Memory.
 
+See IM_Notebook_Justin_Epochs1_synthetic_noisy_politics_x_age.ipynb for the most up to date notebook with optimizations included.
+
 More info on outputs of the runs at this [doc](https://docs.google.com/document/d/13kgl_4QY2T9ODUrLtasu9MxsyAUduMjZT5W6Rg0m190/edit).
 - [Gender on full weibo dataset for 10 epochs](https://console.cloud.google.com/storage/browser/fair-influence-maximization-mounted/data/Data/Weibo/Output_Full-attempt_2024-03-12?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&hl=en&project=d4w3-369005)
 - [Gender on full weibo dataset for 1 epoch](https://console.cloud.google.com/storage/browser/fair-influence-maximization-mounted/data/Data/Weibo/Output_Full-attempt_2024-03-12_epoch1?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&hl=en&project=d4w3-369005)
