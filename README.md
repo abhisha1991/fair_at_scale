@@ -8,7 +8,7 @@
 Website: https://sites.google.com/berkeley.edu/fairimpact/home
 
 
-## Influence Maximization [website](https://sites.google.com/berkeley.edu/fairimpact?usp=sharing)
+## Influence Maximization
 It refers to a class of algorithms that aim to maximize information spread in a graph under some budget constraints.
 The aim is to find K most influential (seed) nodes from which diffusion of a specific message should start.
 This project takes things a step further by adding a constraint of fairness when trying to still maximize influence.
